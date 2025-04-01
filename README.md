@@ -1,2 +1,2 @@
-# Aerial-and-Maritime-Drones
-Aerial and Maritime Drones course at the École Centrale de Nantes
+# Aerial and Maritime Drones
+Inside the folders you can find corrispectives README.md and files.
