@@ -1,5 +1,5 @@
 # Introduction
-In this laboratory, it was required to control an **Autonomous Underwater Vehicle** (*AUV*), equipped with thrusters (see Figure 1). The task of the robot is to be able to follow a set of *waypoints* run through *Gazebo*, with a chosen position and orientation, and then proceed to estimate its pose through the application of the *Extended Kalman Filter*.
+In this laboratory, it was required to control an **Autonomous Underwater Vehicle** (*AUV*), equipped with thrusters (see Figure 14). The task of the robot is to be able to follow a set of *waypoints* run through *Gazebo*, with a chosen position and orientation, and then proceed to estimate its pose through the application of the *Extended Kalman Filter*.
 
 ## 1. Waypoints Following
 The first task was to modify the node defined in `waypoint.cpp`, to loop through the waypoints defined in `waypoints.yaml`. Due to uncertainty of the AUV, it may not perfectly reach the desired position. For this reason, two thresholds were used to ensure the desired accuracy in *position* and in *orientation*. 
@@ -8,25 +8,25 @@ In practice, a double check was implemented for both thresholds. Since the waypo
 
 The following figures show the trajectory of the AUV (red arrows), starting from the initial position (red box), and the position of the *waypoints* (green circles) during this task.
 
-![Starting position of the AUV](Figures/starting_position.png)
+<img src="images/starting_position.png" width="25%" />
 *Figure 1: Starting position of the AUV.*
 
-![Trajectory to the first waypoint](Figures/1st_waypoint.png)
+<img src="images/1st_waypoint.png" width="25%" />
 *Figure 2: Trajectory to the first waypoint.*
 
-![Trajectory to the second and third waypoints](Figures/2nd-3th_waypoints.png)
+<img src="images/2nd-3th_waypoints.png" width="25%" />
 *Figure 3: Trajectory to the second and third waypoints.*
 
-![Trajectory to the fourth and fifth waypoints](Figures/4th-5th_waypoints.png)
+<img src="images/4th-5th_waypoints.png" width="25%" />
 *Figure 4: Trajectory to the fourth and fifth waypoints.*
 
-![Trajectory to the sixth and seventh waypoints](Figures/6th-7th_waypoints.png)
+<img src="images/6th-7th_waypoints.png" width="25%" />
 *Figure 5: Trajectory to the sixth and seventh waypoints.*
 
-![Trajectory to the eighth and ninth waypoints](Figures/8th-9th_waypoints.png)
+<img src="images/8th-9th_waypoints.png" width="25%" />
 *Figure 6: Trajectory to the eighth and ninth waypoints.*
 
-![Trajectory from the last to the first waypoint](Figures/9th_to_1st_waypoint.PNG)
+<img src="images/9th_to_1st_waypoint.PNG" width="25%" />
 *Figure 7: Trajectory from the last to the first waypoint.*
 
 In Figures 3, 4, 5, and 6, the waypoints coincide in position but differ in orientation. This means that once the AUV reaches the position of a waypoint, it then rotates to satisfy the orientation of the second waypoint.
@@ -99,22 +99,30 @@ where:
 ### Performance Comparison:
 
 #### One IMU:
-![One IMU - Default Noise](images/imu0.png)
-![One IMU - Double Noise](images/imu0_DOUBLE_NOISE.png)
+<img src="images/imu0.png" width="25%" />
+*Figure 8: One IMU with Default Noise.*
+<img src="images/imu0_DOUBLE_NOISE.png" width="25%" />
+*Figure 9: One IMU with Double Noise.*
 
 #### Two IMUs:
-![Two IMUs - Default Noise](images/2imu.png)
-![Two IMUs - Double Noise](images/2imu_double_noise.png)
+<img src="images/2imu.png" width="25%" />
+*Figure 10: Two IMU with Default Noise.*
+<img src="images/2imu_double_noise.png" width="25%" />
+*Figure 11: Two IMU with Double Noise.*
 
 #### Two IMUs + Depth Sensor:
-![Two IMUs + Depth Sensor - Default Noise](images/2imu_depth.png)
-![Two IMUs + Depth Sensor - Double Noise](images/2imu_depth_double_noise.png)
+<img src="images/2imu_depth.png" width="25%" />
+*Figure 12: Two IMU + Depth Sensor with Default Noise.*
+<img src="images/2imu_depth_double_noise.png" width="25%" />
+*Figure 13: Two IMU + Depth Sensor with Double Noise.*
 
 It is visible that the ellipsoids collapse into a **2D shape**, since the depth is no longer uncertain thanks to the information added by the sensor.
 
 #### All Sensors Combined:
-![All Sensors - Default Noise](images/all_sensors.png)
-![All Sensors - Double Noise](images/all_sensors_double_noise.png)
+<img src="images/all_sensors.png" width="25%" />
+*Figure 14: All Sensors with Default Noise.*
+<img src="images/all_sensors_double_noise.png" width="25%" />
+*Figure 15: All Sensors with Double Noise.*
 
 In Figures above, the best position estimation is obtained with **all sensors combined**, resulting in the smallest ellipsoid. With higher noise, the ellipsoid slightly increases in size, but the estimation remains the most accurate among all cases.
 
